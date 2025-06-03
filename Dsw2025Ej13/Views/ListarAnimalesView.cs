@@ -1,11 +1,6 @@
 ﻿using Dsw2025Ej13.Presentation.Controllers;
 using Dsw2025Ej13.Presentation.Interfaces;
 using Dsw2025Ej13.Presentation.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dsw2025Ej13.Presentation.Views;
 
