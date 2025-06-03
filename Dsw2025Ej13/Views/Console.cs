@@ -5,7 +5,13 @@ namespace Dsw2025Ej13.Presentation.Views;
 
 public class ConsoleView
 {
-    public static void DibujarMenu()
+    private readonly Controlador _controlador;
+
+    public ConsoleView(Controlador controlador)
+    {
+        _controlador = controlador;
+    }
+    public void DibujarMenu()
     {
         string? opcion = null;
         do
@@ -33,7 +39,7 @@ public class ConsoleView
         }
         while (opcion != "3");
     }
-    public static void CentrarTexto(string? texto, out int usado, int? ancho = null, bool salto = true)
+    public void CentrarTexto(string? texto, out int usado, int? ancho = null, bool salto = true)
     {
         texto ??= string.Empty;
         ancho ??= Console.WindowWidth;
@@ -45,11 +51,11 @@ public class ConsoleView
         Console.Write(final);
         usado = final.Length;
     }
-    public static void LimpiarPantalla()
+    public void LimpiarPantalla()
     {
         Console.Clear();
     }
-    public static void DibujarLinea()
+    public void DibujarLinea()
     {
         var with = Console.WindowWidth;
         for (int i = 0; i < with; i++)
@@ -57,7 +63,7 @@ public class ConsoleView
             Console.Write("-");
         }
     }
-    private static void ListarAnimales()
+    private void ListarAnimales()
     {
         LimpiarPantalla();
         string[] columnas = { "Especie", "Edad", "Peso", "Sector", "Porc. Carnivoro", "Valor Fijo" };
@@ -68,7 +74,7 @@ public class ConsoleView
         Console.Write("\n");
         Console.WriteLine("Presione una tecla para calcular el total de comida...");
         Console.ReadLine();
-        ComidaViewModel totalComida = Controlador.CalcularComida();
+        ComidaViewModel totalComida = _controlador.CalcularComida();
         DibujarLinea();
         Console.WriteLine($"Total de comida Carnívoros: {totalComida.GetCarnivoros()} Kgs.");
         Console.WriteLine($"Total de comida Herbívoros: {totalComida.GetHerbivoros()} Kgs.");
@@ -79,7 +85,7 @@ public class ConsoleView
         Console.WriteLine("Presione una tecla para salir...");
         Console.ReadLine();
     }
-    private static void DibujarEncabezado(params string[] columnas)
+    private void DibujarEncabezado(params string[] columnas)
     {
         DibujarLinea();
         int ancho = Console.WindowWidth / columnas.Length;
@@ -93,9 +99,9 @@ public class ConsoleView
         Console.Write("\n");
         DibujarLinea();
     }
-    private static void DibjuarDatos(int columnas)
+    private void DibjuarDatos(int columnas)
     {
-        List<AnimalViewModel> animales = Controlador.ObtenerAnimales();
+        List<AnimalViewModel> animales = _controlador.ObtenerAnimales();
         int ancho = Console.WindowWidth / columnas;
         foreach (var animal in animales)
         {
