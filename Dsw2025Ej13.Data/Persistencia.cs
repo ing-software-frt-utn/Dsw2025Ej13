@@ -1,10 +1,10 @@
-﻿using Dsw2025Ej13.Domain;
+﻿using Dsw2025Ej13.Domain.Entities;
 
 namespace Dsw2025Ej13.Data;
 
 public class Persistencia
 {
-    private const string Archivo = "..\\..\\..\\Data\\Animales.txt";
+    private const string Archivo = "Animales.txt";
     private static List<Especie> _especies = [];
     private static List<Mamifero> _mamiferos = [];
     private static List<Sector> _sectores = [];

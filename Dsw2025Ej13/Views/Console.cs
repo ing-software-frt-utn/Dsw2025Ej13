@@ -1,4 +1,7 @@
-﻿namespace Dsw2025Ej13.Presentation;
+﻿using Dsw2025Ej13.Presentation.Controllers;
+using Dsw2025Ej13.Presentation.Models;
+
+namespace Dsw2025Ej13.Presentation.Views;
 
 public class ConsoleView
 {
@@ -46,7 +49,6 @@ public class ConsoleView
     {
         Console.Clear();
     }
-
     public static void DibujarLinea()
     {
         var with = Console.WindowWidth;
@@ -55,7 +57,6 @@ public class ConsoleView
             Console.Write("-");
         }
     }
-
     private static void ListarAnimales()
     {
         LimpiarPantalla();

@@ -1,6 +1,6 @@
-﻿using Dsw2025Ej13.Domain;
+﻿using Dsw2025Ej13.Domain.Entities;
 
-namespace Dsw2025Ej13.Presentation;
+namespace Dsw2025Ej13.Presentation.Models;
 
 public record AnimalViewModel
 {
@@ -19,7 +19,7 @@ public record AnimalViewModel
         _sector = animal.GetSector()?.ToString();
         _peso = animal.GetPeso();
         _valorFijo = animal is Herbivoro herbivoro ? herbivoro.GetValorFijo() : 0;
-        _porcentaje = animal is Carnivoro carnivoro ? (carnivoro.GetEspecie()?.GetPorcentajePesoCarnivoro() ?? 0) : 0;
+        _porcentaje = animal is Carnivoro carnivoro ? carnivoro.GetEspecie()?.GetPorcentajePesoCarnivoro() ?? 0 : 0;
     }
 
     public string? GetEspecie()

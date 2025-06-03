@@ -1,7 +1,8 @@
 ﻿using Dsw2025Ej13.Data;
-using Dsw2025Ej13.Domain;
+using Dsw2025Ej13.Domain.Entities;
+using Dsw2025Ej13.Presentation.Models;
 
-namespace Dsw2025Ej13.Presentation;
+namespace Dsw2025Ej13.Presentation.Controllers;
 
 public class Controlador
 {

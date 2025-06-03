@@ -1,4 +1,4 @@
-﻿namespace Dsw2025Ej13.Domain;
+﻿namespace Dsw2025Ej13.Domain.Entities;
 
 public class Carnivoro: Mamifero
 {
