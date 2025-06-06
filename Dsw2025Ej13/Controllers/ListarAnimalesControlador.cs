@@ -5,12 +5,12 @@ using Dsw2025Ej13.Presentation.Models;
 
 namespace Dsw2025Ej13.Presentation.Controllers;
 
-public class ControladorListarAnimales: IControlador
+public class ListarAnimalesControlador: IControlador
 {
     private readonly IPersistencia _persistencia;
     private readonly IListarAnimalesView _vista;
 
-    public ControladorListarAnimales(IPersistencia persistencia,
+    public ListarAnimalesControlador(IPersistencia persistencia,
         IListarAnimalesView vista)
     {
         _persistencia = persistencia;

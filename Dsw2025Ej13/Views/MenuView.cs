@@ -3,7 +3,7 @@ using Dsw2025Ej13.Presentation.Interfaces;
 
 namespace Dsw2025Ej13.Presentation.Views;
 
-public class MenuView : BaseView<ControladorMenu>, IMenuView
+public class MenuView : ViewBase<MenuControlador>, IMenuView
 {
     public MenuView()
     {

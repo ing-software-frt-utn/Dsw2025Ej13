@@ -2,7 +2,7 @@
 
 namespace Dsw2025Ej13.Presentation.Views;
 
-public abstract class BaseView<T> : IBaseView<T>
+public abstract class ViewBase<T> : IViewBase<T>
     where T : IControlador
 {
     public T Controlador { get; private set; }

@@ -2,7 +2,7 @@
 
 namespace Dsw2025Ej13.Presentation.Interfaces;
 
-public interface IListarAnimalesView: IBaseView<ControladorListarAnimales>
+public interface IListarAnimalesView: IViewBase<ListarAnimalesControlador>
 {
     void ListarAnimales();
 }

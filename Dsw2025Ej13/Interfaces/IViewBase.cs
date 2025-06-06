@@ -1,6 +1,6 @@
 ﻿namespace Dsw2025Ej13.Presentation.Interfaces;
 
-public interface IBaseView<T>
+public interface IViewBase<T>
     where T : IControlador
     
 {

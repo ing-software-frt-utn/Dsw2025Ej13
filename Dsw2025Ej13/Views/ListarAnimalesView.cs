@@ -4,7 +4,7 @@ using Dsw2025Ej13.Presentation.Models;
 
 namespace Dsw2025Ej13.Presentation.Views;
 
-public class ListarAnimalesView: BaseView<ControladorListarAnimales>, IListarAnimalesView
+public class ListarAnimalesView: ViewBase<ListarAnimalesControlador>, IListarAnimalesView
 {
     public void ListarAnimales()
     {

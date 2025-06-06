@@ -2,11 +2,11 @@
 
 namespace Dsw2025Ej13.Presentation.Controllers;
 
-public class ControladorMenu: IControlador
+public class MenuControlador: IControlador
 {
     private readonly IMenuView _vista;
 
-    public ControladorMenu(IMenuView vista)
+    public MenuControlador(IMenuView vista)
     {
         _vista = vista;
         _vista.SetControlador(this);
@@ -15,6 +15,6 @@ public class ControladorMenu: IControlador
 
     public void ListarAnimales()
     {
-        GestorVistas.Instance.NavegarA<ControladorListarAnimales>();
+        GestorControladores.Instance.NavegarA<ListarAnimalesControlador>();
     }
 }

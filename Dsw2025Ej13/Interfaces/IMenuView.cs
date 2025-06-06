@@ -2,7 +2,7 @@
 
 namespace Dsw2025Ej13.Presentation.Interfaces;
 
-public interface IMenuView: IBaseView<ControladorMenu>
+public interface IMenuView: IViewBase<MenuControlador>
 {
     void DibujarMenu();
 }

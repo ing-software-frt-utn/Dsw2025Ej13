@@ -1,17 +1,17 @@
 ﻿namespace Dsw2025Ej13.Presentation.Controllers;
 
-public class GestorVistas
+public class GestorControladores
 {
-    private static GestorVistas? _instance;
+    private static GestorControladores? _instance;
     private IServiceProvider? _serviceProvider;
-    private GestorVistas()
+    private GestorControladores()
     {
     }
-    public static GestorVistas Instance
+    public static GestorControladores Instance
     {
         get
         {
-            return _instance ??= new GestorVistas();
+            return _instance ??= new GestorControladores();
         }
     }
 

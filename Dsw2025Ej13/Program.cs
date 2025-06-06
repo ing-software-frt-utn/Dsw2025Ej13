@@ -14,13 +14,13 @@ internal class Program
     {
         var service = new ServiceCollection();
         service.AddTransient<IPersistencia, PersistenciaEnMemoria>();
-        service.AddTransient<ControladorMenu>();
-        service.AddTransient<ControladorListarAnimales>();
+        service.AddTransient<MenuControlador>();
+        service.AddTransient<ListarAnimalesControlador>();
         service.AddTransient<IMenuView, MenuView>();
         service.AddTransient<IListarAnimalesView, ListarAnimalesView>();
 
         var provider = service.BuildServiceProvider();
-        GestorVistas.Instance.SetProveedor(provider);
-        GestorVistas.Instance.NavegarA<ControladorMenu>();
+        GestorControladores.Instance.SetProveedor(provider);
+        GestorControladores.Instance.NavegarA<MenuControlador>();
     }
 }
