@@ -85,7 +85,7 @@ public class PersistenciaEnMemoria : IPersistencia
         }
         return null;
     }
-    public List<Mamifero> GetMamiferos()
+    public IEnumerable<Mamifero> GetMamiferos()
     {
         return _mamiferos;
     }
@@ -97,13 +97,13 @@ public class PersistenciaEnMemoria : IPersistencia
     {
         return double.TryParse(valor, out double resultado) ? resultado : 0.0;
     }
-    public double GetTotalComida(TipoAlimentacion tipoAlimentacion)
+    public Dictionary<TipoAlimentacion, double> GetTotalComida()
     {
-        double total = 0;
-        foreach (Mamifero animal in _mamiferos)
-        {
-            total += animal.TieneAlimentacion(tipoAlimentacion) ? animal.CalcularCantidadDeComida() : 0;
-        }
-        return total;
+        return Enum.GetValues<TipoAlimentacion>()
+            .ToDictionary(
+            t => t,
+            t => _mamiferos
+                    .Where(m => m.TieneAlimentacion(t))
+                    .Sum(m => m.CalcularCantidadDeComida()));
     }
 }
