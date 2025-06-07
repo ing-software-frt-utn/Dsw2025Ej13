@@ -1,4 +1,4 @@
-﻿namespace Dsw2025Ej13.Presentation;
+﻿namespace Dsw2025Ej13.Presentation.Models;
 
 public class ComidaViewModel
 {

@@ -1,22 +1,23 @@
-﻿using Dsw2025Ej13.Domain;
+﻿using Dsw2025Ej13.Domain.Entities;
+using Dsw2025Ej13.Domain.Interfaces;
 
 namespace Dsw2025Ej13.Data;
 
-public class Persistencia
+public class PersistenciaEnMemoria : IPersistencia
 {
-    private const string Archivo = "..\\..\\..\\Data\\Animales.txt";
-    private static List<Especie> _especies = [];
-    private static List<Mamifero> _mamiferos = [];
-    private static List<Sector> _sectores = [];
+    private const string Archivo = "Animales.txt";
+    private List<Especie> _especies = [];
+    private List<Mamifero> _mamiferos = [];
+    private List<Sector> _sectores = [];
 
-    static Persistencia()
+    public PersistenciaEnMemoria()
     {
         InicializarEspecies();
         InicializarSectores();
         CargarAnimalesDeArchivo();
     }
 
-    private static void InicializarEspecies()
+    private void InicializarEspecies()
     {
         _especies.Add(new Especie(1, "León", 0.2, TipoAlimentacion.CARNIVORO));
         _especies.Add(new Especie(2, "Jirafa", 0, TipoAlimentacion.HERBIVORO));
@@ -24,7 +25,7 @@ public class Persistencia
         _especies.Add(new Especie(4, "Elefante", 0, TipoAlimentacion.HERBIVORO));
     }
 
-    private static void InicializarSectores()
+    private void InicializarSectores()
     {
         Empleado raul = new("Raul A", "20111222", "Tucumán");
         Empleado maria = new("Maria B", "30111222", "Tucumán");
@@ -34,7 +35,7 @@ public class Persistencia
         _sectores.Add(new Sector(4, -26.257250, -65.523514, 10, TipoAlimentacion.CARNIVORO, raul));
     }
 
-    private static void CargarAnimalesDeArchivo()
+    private void CargarAnimalesDeArchivo()
     {
         string[] animales = File.ReadAllLines(Archivo);
         foreach (var animal in animales)
@@ -61,8 +62,8 @@ public class Persistencia
             _mamiferos.Add(mamifero);
         }
     }
-    
-    public static Especie? GetEspecie(int codigo)
+
+    public Especie? GetEspecie(int codigo)
     {
         foreach (Especie especie in _especies)
         {
@@ -73,7 +74,7 @@ public class Persistencia
         }
         return null;
     }
-    public static Sector? GetSector(int numero)
+    public Sector? GetSector(int numero)
     {
         foreach (Sector sector in _sectores)
         {
@@ -84,19 +85,19 @@ public class Persistencia
         }
         return null;
     }
-    public static List<Mamifero> GetMamiferos()
+    public List<Mamifero> GetMamiferos()
     {
         return _mamiferos;
     }
-    private static int ParseInt(string? valor)
+    private int ParseInt(string? valor)
     {
         return int.TryParse(valor, out int resultado) ? resultado : 0;
     }
-    private static double ParseDouble(string? valor)
+    private double ParseDouble(string? valor)
     {
         return double.TryParse(valor, out double resultado) ? resultado : 0.0;
     }
-    public static double GetTotalComida(TipoAlimentacion tipoAlimentacion)
+    public double GetTotalComida(TipoAlimentacion tipoAlimentacion)
     {
         double total = 0;
         foreach (Mamifero animal in _mamiferos)
